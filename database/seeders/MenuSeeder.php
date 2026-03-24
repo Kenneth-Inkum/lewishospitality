@@ -88,7 +88,7 @@ class MenuSeeder extends Seeder
                         $item->addMediaFromUrl($itemData['image'])
                             ->toMediaCollection('images');
                     } catch (\Exception $e) {
-                        // Skip if image fails to download
+                        \Log::error("Failed to download image for {$item->name}: " . $e->getMessage());
                     }
                 }
             }

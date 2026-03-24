@@ -39,7 +39,7 @@ new #[Title('Welcome to Lewis Hospitality'), Layout('layouts.public')] class ext
                     Two decades of bringing people together around exceptional food in the heart of Washington, DC.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4 animate-in fade-in slide-in-from-bottom-4 delay-700 duration-1000">
-                    <a href="#" class="group inline-flex items-center gap-2 rounded-full bg-amber-600 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-xl shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:bg-amber-500 hover:shadow-2xl hover:shadow-amber-900/50">
+                    <a href="{{ route('reservations') }}" wire:navigate class="group inline-flex items-center gap-2 rounded-full bg-amber-600 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-xl shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:bg-amber-500 hover:shadow-2xl hover:shadow-amber-900/50">
                         <span>Reserve a Table</span>
                         <flux:icon.arrow-right class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
@@ -95,7 +95,7 @@ new #[Title('Welcome to Lewis Hospitality'), Layout('layouts.public')] class ext
                         Reserve your table today and discover why we've been a DC dining destination for over 20 years.
                     </p>
                     <div class="flex flex-wrap items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 delay-500 duration-700">
-                        <a href="#" class="group inline-flex items-center gap-2 rounded-full bg-amber-600 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-xl shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:bg-amber-500 hover:shadow-2xl hover:shadow-amber-900/50">
+                        <a href="{{ route('reservations') }}" wire:navigate class="group inline-flex items-center gap-2 rounded-full bg-amber-600 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-xl shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:bg-amber-500 hover:shadow-2xl hover:shadow-amber-900/50">
                             <flux:icon.calendar class="size-5 transition-transform duration-300 group-hover:scale-110" />
                             <span>Make a Reservation</span>
                         </a>

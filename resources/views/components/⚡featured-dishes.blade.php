@@ -90,7 +90,7 @@ new class extends Component {
 
                 {{-- View Full Menu CTA --}}
                 <div class="mt-12 text-center">
-                    <a href="#" class="inline-flex items-center gap-2 rounded-full border border-amber-600/30 bg-amber-600/10 px-6 py-3 text-sm font-semibold text-amber-400 transition-all duration-200 hover:border-amber-600 hover:bg-amber-600/20">
+                    <a href="{{ route('menu') }}" wire:navigate class="inline-flex items-center gap-2 rounded-full border border-amber-600/30 bg-amber-600/10 px-6 py-3 text-sm font-semibold text-amber-400 transition-all duration-200 hover:border-amber-600 hover:bg-amber-600/20">
                         <span>View Full Menu</span>
                         <flux:icon.arrow-right class="size-4" />
                     </a>
@@ -99,4 +99,3 @@ new class extends Component {
         </section>
     @endif
 </div>
-{{-- It always seems impossible until it is done. - Nelson Mandela --}}

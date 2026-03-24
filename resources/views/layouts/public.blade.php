@@ -40,6 +40,10 @@
                            class="text-xs font-medium uppercase tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white">
                             Menu
                         </a>
+                        <a href="{{ route('reservations') }}" wire:navigate
+                           class="text-xs font-medium uppercase tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white">
+                            Reservations
+                        </a>
                         <a href="{{ route('events') }}" wire:navigate
                            class="text-xs font-medium uppercase tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white">
                             Events
@@ -56,7 +60,7 @@
                            class="text-xs font-medium uppercase tracking-wide text-zinc-400 transition-colors duration-200 hover:text-white">
                             Contact
                         </a>
-                        <a href="#"
+                        <a href="{{ route('reservations') }}" wire:navigate
                            class="ml-2 rounded-full bg-amber-600 px-5 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-colors duration-200 hover:bg-amber-500">
                             Reserve a Table
                         </a>
@@ -97,6 +101,10 @@
                     <a href="{{ route('menu') }}" wire:navigate @click="mobileOpen = false"
                        class="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wide text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white">
                         Menu
+                    </a>
+                    <a href="{{ route('reservations') }}" wire:navigate @click="mobileOpen = false"
+                       class="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wide text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white">
+                        Reservations
                     </a>
                     <a href="{{ route('events') }}" wire:navigate @click="mobileOpen = false"
                        class="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wide text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white">
@@ -212,7 +220,7 @@
                 {{-- Bottom bar --}}
                 <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/60 pt-8 sm:flex-row">
                     <p class="text-xs text-zinc-600">
-                        &copy; {{ date('Y') }} Lewis Hospitality Group. All rights reserved.
+                        &copy; {{ date('Y') }} Lewis Hospitality Group. All rights reserved. Built with ❤️ by <a href="mailto:xanthosoma1989@gmail.com" class="text-amber-400 hover:underline">Kenneth Ekow Inkum</a>
                     </p>
                     <div class="flex items-center gap-6">
                         <a href="#" class="text-xs text-zinc-600 transition-colors hover:text-zinc-400">Privacy Policy</a>

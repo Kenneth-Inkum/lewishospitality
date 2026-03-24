@@ -10,6 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "barryvdh/laravel-dompdf": "^3.1",
         "codezero/laravel-unique-translation": "*",
         "laravel/ai": "*",
         "laravel/fortify": "^1.34",

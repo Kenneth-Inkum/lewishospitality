@@ -135,14 +135,9 @@ x-init="$watch('search', () => $nextTick(() => $dispatch('items-filtered')))"
             {{-- PDF Download --}}
             <div class="flex items-center justify-between border-t border-zinc-800 pt-6">
                 <p class="text-sm text-zinc-500">Download our menu as a PDF</p>
-                <a
-                    href="{{ route('menu.pdf') }}"
-                    target="_blank"
-                    class="inline-flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-amber-600 hover:bg-zinc-800"
-                >
-                    <flux:icon.arrow-down-tray class="size-4" />
-                    Download PDF
-                </a>
+                <div>
+                    <livewire:download-menu-pdf />
+                </div>
             </div>
         </div>
 
