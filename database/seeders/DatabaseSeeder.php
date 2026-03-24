@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             MenuSeeder::class,
             EventSeeder::class,
+            GallerySeeder::class,
+            SettingSeeder::class,
         ]);
 
         // Super admin user

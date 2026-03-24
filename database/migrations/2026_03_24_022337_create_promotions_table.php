@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('free_item_id')->nullable()->constrained('menu_items')->nullOnDelete();
             $table->string('applicable_to')->default('all')->comment('all, loyalty_members, targeted_segment');
             $table->date('starts_at');
-            $table->date('ends_at');
+            $table->date('ends_at')->nullable();
             $table->boolean('show_on_homepage')->default(false);
             $table->boolean('active')->default(true);
             $table->timestamps();

@@ -28,6 +28,12 @@ class MenuCategory extends Model
         return $this->hasMany(MenuItem::class)->orderBy('sort_order');
     }
 
+    /** @return HasMany<MenuItem, $this> */
+    public function items(): HasMany
+    {
+        return $this->menuItems();
+    }
+
     /** @param Builder<MenuCategory> $query */
     public function scopeActive(Builder $query): Builder
     {

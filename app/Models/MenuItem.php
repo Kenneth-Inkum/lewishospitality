@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 #[Fillable([
     'menu_category_id', 'name', 'slug', 'description', 'price',
@@ -17,10 +19,10 @@ use Illuminate\Support\Carbon;
     'available_from', 'available_until', 'available_days',
     'sort_order', 'active', 'pos_id',
 ])]
-class MenuItem extends Model
+class MenuItem extends Model implements HasMedia
 {
     /** @use HasFactory<MenuItemFactory> */
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected function casts(): array
     {
@@ -98,5 +100,13 @@ class MenuItem extends Model
     public function scopeWithDietaryTags(Builder $query, array $tags): Builder
     {
         return $query->whereRaw('dietary_tags @> ?::jsonb', [json_encode($tags)]);
+    }
+
+    public function registerMediaConversions(\Spatie\MediaLibrary\MediaCollections\Models\Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(400)
+            ->height(400)
+            ->sharpen(10);
     }
 }

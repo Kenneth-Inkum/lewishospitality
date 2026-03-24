@@ -14,7 +14,7 @@ class EventSeeder extends Seeder
         $primary = Location::where('is_primary', true)->first();
 
         // Upcoming event with RSVP
-        Event::create([
+        $event1 = Event::create([
             'location_id' => $primary?->id,
             'title' => 'Chef\'s Table Wine Pairing Dinner',
             'slug' => 'chefs-table-wine-pairing-dinner',
@@ -28,8 +28,15 @@ class EventSeeder extends Seeder
             'published' => true,
         ]);
 
+        try {
+            $event1->addMediaFromUrl('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80')
+                ->toMediaCollection('images');
+        } catch (\Exception $e) {
+            // Skip if image fails
+        }
+
         // Upcoming event with external ticket link
-        Event::create([
+        $event2 = Event::create([
             'location_id' => $primary?->id,
             'title' => 'Jazz & Craft Cocktails Night',
             'slug' => 'jazz-craft-cocktails-night',
@@ -43,8 +50,15 @@ class EventSeeder extends Seeder
             'published' => true,
         ]);
 
+        try {
+            $event2->addMediaFromUrl('https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80')
+                ->toMediaCollection('images');
+        } catch (\Exception $e) {
+            // Skip if image fails
+        }
+
         // A third event further out
-        Event::create([
+        $event3 = Event::create([
             'location_id' => null,
             'title' => 'Farm-to-Table Harvest Brunch',
             'slug' => 'farm-to-table-harvest-brunch',
@@ -57,6 +71,13 @@ class EventSeeder extends Seeder
             'rsvp_enabled' => true,
             'published' => true,
         ]);
+
+        try {
+            $event3->addMediaFromUrl('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80')
+                ->toMediaCollection('images');
+        } catch (\Exception $e) {
+            // Skip if image fails
+        }
 
         // Active promotion
         Promotion::create([

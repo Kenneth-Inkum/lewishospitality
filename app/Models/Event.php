@@ -9,16 +9,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 #[Fillable([
     'location_id', 'title', 'slug', 'description',
     'starts_at', 'ends_at', 'cta_type', 'cta_label', 'cta_url',
     'rsvp_enabled', 'published',
 ])]
-class Event extends Model
+class Event extends Model implements HasMedia
 {
     /** @use HasFactory<EventFactory> */
     use HasFactory;
+    use InteractsWithMedia;
 
     protected function casts(): array
     {
@@ -52,5 +55,13 @@ class Event extends Model
     public function scopeUpcoming(Builder $query): Builder
     {
         return $query->where('starts_at', '>=', now())->orderBy('starts_at');
+    }
+
+    public function registerMediaConversions(\Spatie\MediaLibrary\MediaCollections\Models\Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(400)
+            ->height(400)
+            ->sharpen(10);
     }
 }

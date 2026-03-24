@@ -35,11 +35,13 @@ return new class extends Migration
             $table->index('active');
         });
 
-        // GIN index for dietary tag containment queries: dietary_tags @> '["vegan"]'
-        DB::statement('CREATE INDEX menu_items_dietary_tags_gin ON menu_items USING GIN (dietary_tags)');
+        if (DB::connection()->getDriverName() === 'pgsql') {
+            // GIN index for dietary tag containment queries: dietary_tags @> '["vegan"]'
+            DB::statement('CREATE INDEX menu_items_dietary_tags_gin ON menu_items USING GIN (dietary_tags)');
 
-        // GIN index for full-text search across name + description
-        DB::statement("CREATE INDEX menu_items_search_gin ON menu_items USING GIN (to_tsvector('english', name || ' ' || COALESCE(description, '')))");
+            // GIN index for full-text search across name + description
+            DB::statement("CREATE INDEX menu_items_search_gin ON menu_items USING GIN (to_tsvector('english', name || ' ' || COALESCE(description, '')))");
+        }
     }
 
     /**

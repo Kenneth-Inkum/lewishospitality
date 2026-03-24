@@ -15,6 +15,13 @@ class Setting extends Model
 
     public $timestamps = false;
 
+    protected function casts(): array
+    {
+        return [
+            'value' => 'json',
+        ];
+    }
+
     /**
      * Retrieve a setting value by key with an optional default.
      */

@@ -50,6 +50,11 @@ class EventFactory extends Factory
         ]);
     }
 
+    public function published(): static
+    {
+        return $this->state(['published' => true]);
+    }
+
     public function unpublished(): static
     {
         return $this->state(['published' => false]);
